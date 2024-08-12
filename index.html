@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retro Portfolio</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6; /* Increased line height for body */
+    }
+
+    .header {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 2px solid #000;
+      padding: 20px;
+      background-color: #fff;
+      position: relative;
+      line-height: 1.6; /* Increased line height for header */
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-name {
+      flex: 1;
+    }
+
+    .brand-name h1 {
+      margin: 0;
+      line-height: 1.4; /* Increased line height for h1 */
+    }
+
+    .static-quote {
+      font-size: 16px;
+      margin-top: 10px;
+      line-height: 1.6; /* Increased line height for quote */
+    }
+
+    .profile-image {
+      flex-shrink: 0;
+    }
+
+    .profile-image img {
+      width: 130px; /* Adjusted size */
+      height: 130px; /* Adjusted size */
+      border: 2px solid #000;
+      object-fit: cover; /* Ensures the image covers the square area */
+    }
+    
+    .content-section {
+      max-width: 800px;
+      margin: 20px auto 0;
+      border: 2px solid #000;
+      padding: 20px;
+      background-color: #fff;
+      line-height: 1.6; /* Increased line height for content-section */
+    }
+
+    .nav-bar {
+      margin-top: 20px;
+      border: 2px solid #000;
+      padding: 10px;
+      background-color: #fff;
+      text-align: center;
+      position: relative;
+      line-height: 1.6; /* Increased line height for nav-bar */
+    }
+
+    .nav-bar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .nav-bar ul li {
+      display: inline;
+    }
+
+    .nav-bar ul li a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #000;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 0; /* No rounding */
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      line-height: 1.6; /* Increased line height for links */
+    }
+
+    .nav-bar ul li a:hover {
+      background-color: #f0f0f0;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .nav-bar ul li a:active {
+      background-color: #e0e0e0;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transform: translateY(1px);
+    }
+
+    .nav-bar .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      border: none;
+      background-color: transparent;
+      color: #000;
+    }
+
+    .nav-bar .dropdown {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #fff;
+      border: 2px solid #000;
+      padding: 10px;
+      width: 200px;
+    }
+
+    .nav-bar .dropdown a {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .nav-bar .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .social-links {
+      max-width: 800px;
+      margin: 20px auto;
+      border: 2px solid #000;
+      padding: 10px;
+      background-color: #fff;
+      text-align: center;
+      line-height: 1.6; /* Increased line height for social-links */
+    }
+
+    .social-links a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #000;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 0; /* No rounding */
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      margin: 5px; /* Adjusted margin */
+      line-height: 1.6; /* Increased line height for social links */
+    }
+
+    .social-links a:hover {
+      background-color: #f0f0f0;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .social-links a:active {
+      background-color: #e0e0e0;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      transform: translateY(1px);
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar ul {
+        display: none;
+      }
+
+      .nav-bar .menu-toggle {
+        display: block;
+      }
+
+      .nav-bar .dropdown.show {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <div class="header-content">
+      <div class="brand-name">
+        <h1>Sarkie.</h1>
+        <div class="static-quote">"The only way to do great work is to love what you do."</div>
+      </div>
+      <!-- Profile Image -->
+      <div class="profile-image">
+        <img src="./assets/profile-picture.png" alt="Saravanakumar J">
+      </div>
+    </div>
+    <!-- Navigation Bar Section -->
+    <div class="nav-bar">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://saravanaj.hashnode.dev/">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="dropdown">
+          <a href="index.html">Home</a>
+          <a href="https://saravanaj.hashnode.dev/">Blog</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Introduction Section -->
+  <div class="content-section">
+    <h2>Hello,</h2>
+    <h3>I'm <span style="font-weight: bold;">Saravanakumar J</span></h3>
+    <p>
+      Transitioning from a non-tech background to tech, I'm passionate about learning, project development, emerging technologies, open-source, and blockchain. Excited to join collaborative teams and drive impactful solutions.
+    </p>
+  </div>
+
+  <!-- Technical Skills Section -->
+  <div class="content-section">
+    <h3>Technical Skills:</h3>
+    <ul style="list-style-type: square; margin-left: 20px;">
+      <li>Languages: C, Java, Python</li>
+      <li>Databases: PostgreSQL, MySQL, Neo4j, MongoDB</li>
+      <li>Others: MERN Stack, Git, Firebase</li>
+    </ul>
+  </div>
+
+  <!-- Social Links Section -->
+  <div class="social-links">
+    <a href="https://github.com/your-github" target="_blank">
+      GitHub
+    </a>
+    <a href="https://linkedin.com/in/your-linkedin" target="_blank">
+      LinkedIn
+    </a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const dropdown = document.querySelector('.dropdown');
+      dropdown.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
